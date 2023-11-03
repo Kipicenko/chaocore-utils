@@ -1,0 +1,15 @@
+{
+  "env": {
+    "jest": true
+  },
+  "parser": "@typescript-eslint/parser",
+  "extends": ["eslint:recommended"],
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": 2015
+  },
+  "rules": {
+    "prettier/prettier": "error"
+  },
+  "plugins": ["eslint-plugin-prettier"]
+}

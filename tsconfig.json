@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "target": "es2016",
+    "lib": [
+      "dom",
+      "es2018"
+    ],
+    "moduleResolution": "node",
+    "removeComments": true,
+    "resolveJsonModule": true,
+    "rootDir": "./src",
+    "baseUrl": "./src",
+    "outDir": "./dist",
+    "declaration": true,
+    "noFallthroughCasesInSwitch": true,
+//  "noEmit": true,
+    "noUnusedLocals": true, // Показывать ошибку, если где-то найдены неиспользуемые локальные значения.
+    "noUnusedParameters": true, // Показывать ошибку, если где-то найдены неиспользуемые параметры.
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,            /* Ensure that casing is correct in imports. */
+    "strict": true,                                      /* Enable all strict type-checking options. */
+    "noPropertyAccessFromIndexSignature": false,         /* if true - obj: Record<string, string> obj.test - error obj["test"] is not error */
+    "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
+  },
+  "include": [
+    "./src",
+  ],
+  "exclude": [
+    "node_modules",
+  ]
+}
