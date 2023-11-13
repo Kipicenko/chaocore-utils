@@ -1,1 +1,1 @@
-export { getFormat } from "get-format";
+export { getFormat } from "./get-format";

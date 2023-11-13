@@ -12,8 +12,8 @@
     "baseUrl": "./src",
     "outDir": "./dist",
     "declaration": true,
+    "declarationDir": "dist/types",
     "noFallthroughCasesInSwitch": true,
-//  "noEmit": true,
     "noUnusedLocals": true, // Показывать ошибку, если где-то найдены неиспользуемые локальные значения.
     "noUnusedParameters": true, // Показывать ошибку, если где-то найдены неиспользуемые параметры.
     "esModuleInterop": true,
@@ -27,5 +27,6 @@
   ],
   "exclude": [
     "node_modules",
+    "**/__tests__"
   ]
 }
