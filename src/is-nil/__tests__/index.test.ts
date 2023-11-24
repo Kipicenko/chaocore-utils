@@ -12,5 +12,6 @@ describe("isNil", () => {
         expect(isNil(false)).toBe(false);
         expect(isNil({ name: "Alexey" })).toBe(false);
         expect(isNil([])).toBe(false);
+        expect(isNil(() => true)).toBe(false);
     });
 });
