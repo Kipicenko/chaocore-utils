@@ -19,8 +19,8 @@
     "prepare": "husky install"
   },
   "lint-staged": {
-    "src/**/*.ts": ["yarn tsc-files --noEmit", "yarn eslint"],
-    "src/**/__tests__/*.test.ts": "yarn test"
+    "src/**/!(__tests__)/*.ts": ["yarn tsc-files --noEmit", "yarn eslint"],
+    "src/**/__tests__/*.test.ts": ["yarn eslint", "yarn test"]
   },
   "homepage": "https://github.com/Kipicenko/yachao-utils",
   "repository": {
