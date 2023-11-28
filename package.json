@@ -15,15 +15,11 @@
     "build:lib": "rollup -c --bundleConfigAsCjs",
     "build:clean": "rimraf dist",
     "test": "jest",
-    "tscheck": "yarn tsc --noEmit"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
+    "tscheck": "yarn tsc --noEmit",
+    "prepare": "husky install"
   },
   "lint-staged": {
-    "src/**/*.ts": "yarn tscheck && yarn eslint",
+    "src/**/*.ts": ["yarn tsc-files --noEmit", "yarn eslint"],
     "src/**/__tests__/*.test.ts": "yarn test"
   },
   "homepage": "https://github.com/Kipicenko/yachao-utils",
@@ -51,6 +47,7 @@
     "rollup": "^4.3.0",
     "ts-jest": "^29.1.1",
     "ts-node": "^10.9.1",
+    "tsc-files": "^1.1.4",
     "typescript": "^5.2.2"
   }
 }
