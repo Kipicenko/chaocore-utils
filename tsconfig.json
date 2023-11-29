@@ -8,19 +8,20 @@
     "moduleResolution": "node",
     "removeComments": true,
     "resolveJsonModule": true,
-    "rootDir": "./src",
-    "baseUrl": "./src",
-    "outDir": "./dist",
+    "rootDir": "src",
+    "baseUrl": "src",
+    "outDir": "dist",
     "declaration": true,
     "declarationDir": "dist/types",
+    "emitDeclarationOnly": true,
     "noFallthroughCasesInSwitch": true,
-    "noUnusedLocals": true, // Показывать ошибку, если где-то найдены неиспользуемые локальные значения.
-    "noUnusedParameters": true, // Показывать ошибку, если где-то найдены неиспользуемые параметры.
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
     "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,            /* Ensure that casing is correct in imports. */
-    "strict": true,                                      /* Enable all strict type-checking options. */
-    "noPropertyAccessFromIndexSignature": false,         /* if true - obj: Record<string, string> obj.test - error obj["test"] is not error */
-    "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noPropertyAccessFromIndexSignature": false,
+    "skipLibCheck": true
   },
   "include": [
     "./src",

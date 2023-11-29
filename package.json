@@ -4,15 +4,15 @@
   "private": false,
   "sideEffects": false,
   "description": "utils",
-  "main": "dist/index.js",
-  "module": "dist/index.js",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
   "types": "dist/types/index.d.ts",
   "files": [
     "dist"
   ],
   "scripts": {
     "build": "yarn build:clean && yarn build:lib",
-    "build:lib": "rollup -c --bundleConfigAsCjs",
+    "build:lib": "rollup -c --bundleConfigAsCjs && yarn tsc",
     "build:clean": "rimraf dist",
     "test": "jest",
     "tscheck": "yarn tsc --noEmit",
@@ -22,7 +22,7 @@
     "src/**/!(__tests__)/*.ts": ["yarn tsc-files --noEmit", "yarn eslint"],
     "src/**/__tests__/*.test.ts": ["yarn eslint", "yarn test"]
   },
-  "homepage": "https://github.com/Kipicenko/yachao-utils",
+  "homepage": "https://github.com/Kipicenko/yachao-utils#readme",
   "repository": {
     "type": "git",
     "url": "https://github.com/Kipicenko/yachao-utils"

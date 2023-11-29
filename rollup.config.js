@@ -3,17 +3,44 @@ import commonjs from "@rollup/plugin-commonjs";
 import terser from "@rollup/plugin-terser";
 import { nodeResolve } from "@rollup/plugin-node-resolve";
 
-export default {
+const buildSettings = [
+    {
+        dir: "dist/esm",
+        format: "es",
+        options: {
+            noEmitOnError: true,
+            compilerOptions: {
+                outDir: "dist/esm",
+                declaration: false,
+                emitDeclarationOnly: false,
+                declarationDir: null,
+            },
+        },
+    },
+    {
+        dir: "dist/cjs",
+        format: "cjs",
+        options: {
+            noEmitOnError: true,
+            compilerOptions: {
+                outDir: "dist/cjs",
+                declaration: false,
+                emitDeclarationOnly: false,
+                declarationDir: null,
+            },
+        },
+    },
+];
+
+const builds = buildSettings.map(({ dir, format, options }) => ({
     input: "src/index.ts",
     output: {
-        dir: "dist",
-        format: "es",
+        dir,
+        format,
+        exports: "named",
         preserveModules: true,
     },
-    plugins: [
-        nodeResolve(),
-        typescript({ noEmitOnError: true }),
-        commonjs(),
-        terser(),
-    ],
-};
+    plugins: [commonjs(), nodeResolve(), typescript(options), terser()],
+}));
+
+export default builds;
