@@ -15,7 +15,7 @@
     "build:lib": "rollup -c --bundleConfigAsCjs && yarn tsc",
     "build:clean": "rimraf dist",
     "test": "jest",
-    "tscheck": "yarn tsc --noEmit",
+    "tscheck": "yarn tsc --noEmit --emitDeclarationOnly false",
     "prepare": "husky install"
   },
   "lint-staged": {
