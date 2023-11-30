@@ -4,9 +4,11 @@
     "node": true
   },
   "parser": "@typescript-eslint/parser",
-  "extends": ["eslint:recommended"],
+  "extends": ["eslint:recommended", "prettier"],
   "rules": {
-    "prettier/prettier": "error"
+    "prettier/prettier": "error",
+    "arrow-body-style": "off",
+    "prefer-arrow-callback": "off"
   },
-  "plugins": ["eslint-plugin-prettier"]
+  "plugins": ["prettier"]
 }
