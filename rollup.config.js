@@ -11,9 +11,6 @@ const buildSettings = [
             noEmitOnError: true,
             compilerOptions: {
                 outDir: "dist/esm",
-                declaration: false,
-                emitDeclarationOnly: false,
-                declarationDir: null,
             },
         },
     },
@@ -24,9 +21,6 @@ const buildSettings = [
             noEmitOnError: true,
             compilerOptions: {
                 outDir: "dist/cjs",
-                declaration: false,
-                emitDeclarationOnly: false,
-                declarationDir: null,
             },
         },
     },

@@ -1,9 +1,9 @@
 {
-  "name": "@yachao/utils",
+  "name": "@chaocore/utils",
   "version": "1.0.0",
   "private": false,
   "sideEffects": false,
-  "description": "utils",
+  "description": "My utils library for JavaScript and TypeScript.",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/types/index.d.ts",
@@ -11,22 +11,35 @@
     "dist"
   ],
   "scripts": {
-    "build": "yarn build:clean && yarn build:lib",
-    "build:lib": "rollup -c --bundleConfigAsCjs && yarn tsc",
+    "build": "yarn build:clean && yarn build:lib && yarn build:types",
     "build:clean": "rimraf dist",
+    "build:lib": "rollup -c --bundleConfigAsCjs",
+    "build:types": "yarn tsc --project tsconfig.declaration.json",
+    "tscheck": "yarn tsc --noEmit",
     "test": "jest",
-    "tscheck": "yarn tsc --noEmit --emitDeclarationOnly false",
     "prepare": "husky install"
   },
   "lint-staged": {
     "src/**/!(__tests__)/*.ts": ["yarn tsc-files --noEmit", "yarn eslint"],
     "src/**/__tests__/*.test.ts": ["yarn eslint", "yarn test"]
   },
-  "homepage": "https://github.com/Kipicenko/yachao-utils#readme",
+  "homepage": "https://github.com/Kipicenko/chaocore-utils#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Kipicenko/yachao-utils"
+    "url": "https://github.com/Kipicenko/chaocore-utils"
   },
+  "bugs": {
+    "url": "https://github.com/Kipicenko/chaocore-utils/issues"
+  },
+  "keywords": [
+    "utils",
+    "utils-library",
+    "helpers",
+    "helpers-library",
+    "javascript",
+    "typescript",
+    "programming"
+  ],
   "author": "Kipicenko",
   "license": "MIT",
   "devDependencies": {

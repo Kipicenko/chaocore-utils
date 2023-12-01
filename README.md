@@ -1,1 +1,1 @@
-# @yachao/utils test
+# @chaocore/utils
