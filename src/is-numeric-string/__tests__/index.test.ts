@@ -1,12 +1,16 @@
 import { isNumericString } from "is-numeric-string";
 
 describe("isNumericString", () => {
-    test("should return true if the string has only numbers", () => {
-        expect(isNumericString("12345")).toBe(true);
-    });
+    test.each(["12345", "56899", "2", "0"])(
+        "should return true if the string has only numbers",
+        (str) => {
+            expect(isNumericString(str)).toBe(true);
+        },
+    );
 
     test.each([
         "",
+        "012345",
         "12345 ",
         "12345.",
         "12345+",
@@ -16,6 +20,7 @@ describe("isNumericString", () => {
         ".12345",
         "+=12345",
         "+12345",
+        "-12345",
         "abc45",
         "123.45",
         "123abo45",
