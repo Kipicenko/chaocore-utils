@@ -31,10 +31,13 @@ jobs:
           git config user.name $GITHUB_ACTOR
           git config user.email $GITHUB_ACTOR@users.noreply.github.com
           npm version ${{ github.event.inputs.version }}
-          git push origin main
-          git push origin v${{ github.event.inputs.version }}
 
       - name: Publishing a package
         run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Push version
+        run: |
+          git push origin main
+          git push origin v${{ github.event.inputs.version }}

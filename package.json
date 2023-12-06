@@ -2,6 +2,10 @@
   "name": "@chaocore/utils",
   "version": "0.0.0",
   "private": false,
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
   "sideEffects": false,
   "description": "My utils library for JavaScript and TypeScript.",
   "main": "dist/cjs/index.js",
@@ -27,7 +31,7 @@
   "homepage": "https://github.com/Kipicenko/chaocore-utils#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Kipicenko/chaocore-utils"
+    "url": "git+https://github.com/Kipicenko/chaocore-utils.git"
   },
   "bugs": {
     "url": "https://github.com/Kipicenko/chaocore-utils/issues"
