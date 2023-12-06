@@ -1,6 +1,6 @@
 {
   "name": "@chaocore/utils",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "private": false,
   "sideEffects": false,
   "description": "My utils library for JavaScript and TypeScript.",
@@ -15,6 +15,7 @@
     "build:clean": "rimraf dist",
     "build:lib": "rollup -c --bundleConfigAsCjs",
     "build:types": "yarn tsc --project tsconfig.declaration.json",
+    "all:checks": "yarn tscheck && yarn eslint && yarn test",
     "tscheck": "yarn tsc --noEmit",
     "test": "jest",
     "prepare": "husky install"
