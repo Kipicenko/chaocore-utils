@@ -1,6 +1,6 @@
 {
   "name": "@chaocore/utils",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": false,
   "publishConfig": {
     "access": "public",
@@ -25,8 +25,14 @@
     "prepare": "husky install"
   },
   "lint-staged": {
-    "src/**/!(__tests__)/*.ts": ["yarn tsc-files --noEmit", "yarn eslint"],
-    "src/**/__tests__/*.test.ts": ["yarn eslint", "yarn test"]
+    "src/**/!(__tests__)/*.ts": [
+      "yarn tsc-files --noEmit",
+      "yarn eslint"
+    ],
+    "src/**/__tests__/*.test.ts": [
+      "yarn eslint",
+      "yarn test"
+    ]
   },
   "homepage": "https://github.com/Kipicenko/chaocore-utils#readme",
   "repository": {
