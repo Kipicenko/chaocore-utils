@@ -35,6 +35,7 @@ const builds = buildSettings.map(({ dir, format, options }) => ({
         preserveModules: true,
     },
     plugins: [commonjs(), nodeResolve(), typescript(options), terser()],
+    external: ["rfdc"],
 }));
 
 export default builds;

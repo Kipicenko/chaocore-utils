@@ -1,4 +1,4 @@
-import { isString } from "is-string";
+import { isString } from "@src/is-string";
 
 export function isNumericString(str: string): boolean {
     if (!isString(str)) return false;

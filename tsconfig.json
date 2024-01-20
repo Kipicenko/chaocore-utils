@@ -9,7 +9,7 @@
     "removeComments": true,
     "resolveJsonModule": true,
     "rootDir": "src",
-    "baseUrl": "src",
+    "baseUrl": ".",
     "outDir": "dist",
     "noFallthroughCasesInSwitch": true,
     "noUnusedLocals": true,
@@ -18,7 +18,10 @@
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "noPropertyAccessFromIndexSignature": false,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "paths": {
+      "@src/*": ["./src/*"]
+    }
   },
   "include": [
     "src",

@@ -1,4 +1,4 @@
-import { isString } from "is-string";
+import { isString } from "@src/is-string";
 
 export function getFormat(str: string, dot: boolean = true): string {
     if (!isString(str)) return "";

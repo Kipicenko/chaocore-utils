@@ -1,4 +1,4 @@
-import { isNumericString } from "is-numeric-string";
+import { isNumericString } from "@src/is-numeric-string";
 
 describe("isNumericString", () => {
     test.each(["12345", "56899", "2", "0"])(

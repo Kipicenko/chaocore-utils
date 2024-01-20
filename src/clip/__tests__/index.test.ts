@@ -1,4 +1,4 @@
-import { clip } from "clip";
+import { clip } from "@src/clip";
 
 describe("clip", () => {
     test("should return omit object", () => {
