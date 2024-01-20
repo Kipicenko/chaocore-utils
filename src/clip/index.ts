@@ -1,5 +1,5 @@
 import { isObject } from "@src/is-object";
-import { isArray } from "@src/isArray";
+import { isArray } from "@src/is-array";
 import clone from "rfdc";
 
 export function clip<T extends object = Record<string, any>>(
