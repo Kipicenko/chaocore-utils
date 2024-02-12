@@ -1,5 +1,9 @@
-import { isArray } from "@src/is-array";
-
-export function isObject(value: any): boolean {
-    return typeof value === "object" && value !== null && !isArray(value);
+export function isObject<T extends object = Record<string, unknown>>(
+    value: any,
+): value is T {
+    return (
+        typeof value === "object" &&
+        value !== null &&
+        value.constructor === Object
+    );
 }

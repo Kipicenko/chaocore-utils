@@ -2,8 +2,8 @@ import { isObject } from "@src/is-object";
 import { isArray } from "@src/is-array";
 import clone from "rfdc";
 
-export function clip<T extends object = Record<string, any>>(
-    obj: Record<string, any>,
+export function clip<T extends object = Record<string, unknown>>(
+    obj: Record<string, unknown>,
     keys: Array<string>,
     pick: boolean = false,
 ): T {

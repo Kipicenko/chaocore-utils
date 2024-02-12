@@ -6,14 +6,20 @@ describe("isObject", () => {
         expect(isObject({ name: "Alexey" })).toBe(true);
     });
 
-    test("should return false if it is not object", () => {
-        expect(isObject(1)).toBe(false);
-        expect(isObject("str")).toBe(false);
-        expect(isObject(true)).toBe(false);
-        expect(isObject([])).toBe(false);
-        expect(isObject([5, "str", {}])).toBe(false);
-        expect(isObject(() => 10)).toBe(false);
-        expect(isObject(null)).toBe(false);
-        expect(isObject(undefined)).toBe(false);
+    test.each([
+        undefined,
+        null,
+        1,
+        "str",
+        false,
+        [],
+        () => "check",
+        new Date(),
+        new RegExp(/javascript/gi),
+        new Map(),
+        new Set(),
+        new Error("error"),
+    ])("should return false if it is not object", (value) => {
+        expect(isObject(value)).toBe(false);
     });
 });

@@ -1,11 +1,11 @@
 import { isString } from "@src/is-string";
 
 describe("isString", () => {
-    test("should return true if value string", () => {
+    test("should return true if the value string", () => {
         expect(isString("str")).toBe(true);
     });
 
-    test("should return false if value not string", () => {
+    test("should return false if the value not string", () => {
         expect(isString(1)).toBe(false);
         expect(isString(false)).toBe(false);
         expect(isString({ name: "Alexey" })).toBe(false);
