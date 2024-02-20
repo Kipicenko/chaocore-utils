@@ -24,31 +24,31 @@ function baseCompare(oneValue: any, twoValue: any): boolean {
     return Object.is(oneValue, twoValue);
 }
 
-function dateCompare(oneValue: Date, twoValue: Date): boolean {
-    return baseCompare(oneValue.getTime(), twoValue.getTime());
+function dateCompare(oneDate: Date, twoDate: Date): boolean {
+    return baseCompare(oneDate.getTime(), twoDate.getTime());
 }
 
-function regexCompare(oneValue: RegExp, twoValue: RegExp): boolean {
-    return baseCompare(oneValue.toString(), twoValue.toString());
+function regexCompare(oneRegExp: RegExp, twoRegExp: RegExp): boolean {
+    return baseCompare(oneRegExp.toString(), twoRegExp.toString());
 }
 
 function objectCompare(
-    oneValue: Record<string, any>,
-    twoValue: Record<string, any>,
+    oneObject: Record<string, any>,
+    twoObject: Record<string, any>,
     options: OptionsType,
 ): boolean {
-    if (baseCompare(oneValue, twoValue)) return true;
+    if (baseCompare(oneObject, twoObject)) return true;
 
-    const oneValueKeys = getObjectKeys(oneValue);
-    const twoValueKeys = getObjectKeys(twoValue);
-    if (oneValueKeys.length !== twoValueKeys.length) return false;
+    const oneValueKeys = getObjectKeys(oneObject);
+    const twoValueKeys = new Set(getObjectKeys(twoObject));
+    if (oneValueKeys.length !== twoValueKeys.size) return false;
 
     for (const key of oneValueKeys) {
-        if (!twoValueKeys.includes(key)) return false;
+        if (!twoValueKeys.has(key)) return false;
 
         const isNotEqual = options.shallow
-            ? !baseCompare(oneValue[key], twoValue[key])
-            : !isEqual(oneValue[key], twoValue[key]);
+            ? !baseCompare(oneObject[key], twoObject[key])
+            : !isEqual(oneObject[key], twoObject[key]);
 
         if (isNotEqual) return false;
     }
@@ -57,17 +57,17 @@ function objectCompare(
 }
 
 function arrayCompare(
-    oneValue: Array<any>,
-    twoValue: Array<any>,
+    oneArray: Array<any>,
+    twoArray: Array<any>,
     options: OptionsType,
 ): boolean {
-    if (baseCompare(oneValue, twoValue)) return true;
+    if (baseCompare(oneArray, twoArray)) return true;
 
-    if (oneValue.length !== twoValue.length) return false;
-    for (let i = 0; i < oneValue.length; i++) {
+    if (oneArray.length !== twoArray.length) return false;
+    for (let i = 0; i < oneArray.length; i++) {
         const isNotEqual = options.shallow
-            ? !baseCompare(oneValue[i], twoValue[i])
-            : !isEqual(oneValue[i], twoValue[i]);
+            ? !baseCompare(oneArray[i], twoArray[i])
+            : !isEqual(oneArray[i], twoArray[i]);
 
         if (isNotEqual) return false;
     }
@@ -75,33 +75,33 @@ function arrayCompare(
 }
 
 function mapCompare(
-    oneValue: Map<any, any>,
-    twoValue: Map<any, any>,
+    oneMap: Map<any, any>,
+    twoMap: Map<any, any>,
     options: OptionsType,
 ): boolean {
-    if (baseCompare(oneValue, twoValue)) return true;
+    if (baseCompare(oneMap, twoMap)) return true;
 
-    if (oneValue.size !== twoValue.size) return false;
+    if (oneMap.size !== twoMap.size) return false;
 
-    for (const [key, value] of oneValue) {
-        if (!twoValue.has(key)) return false;
+    for (const [key, value] of oneMap) {
+        if (!twoMap.has(key)) return false;
 
         const isNotEqual = options.shallow
-            ? !baseCompare(value, twoValue.get(key))
-            : !isEqual(value, twoValue.get(key));
+            ? !baseCompare(value, twoMap.get(key))
+            : !isEqual(value, twoMap.get(key));
 
         if (isNotEqual) return false;
     }
     return true;
 }
 
-function setCompare(oneValue: Set<any>, twoValue: Set<any>): boolean {
-    if (baseCompare(oneValue, twoValue)) return true;
+function setCompare(oneSet: Set<any>, twoSet: Set<any>): boolean {
+    if (baseCompare(oneSet, twoSet)) return true;
 
-    if (oneValue.size !== twoValue.size) return false;
+    if (oneSet.size !== twoSet.size) return false;
 
-    for (const value of oneValue) {
-        if (!twoValue.has(value)) return false;
+    for (const value of oneSet) {
+        if (!twoSet.has(value)) return false;
     }
     return true;
 }

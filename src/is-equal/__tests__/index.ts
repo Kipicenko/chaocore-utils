@@ -67,18 +67,18 @@ describe("isEqual", () => {
         };
         expect(isEqual(oneObj, twoObj)).toBe(true);
 
-        let setOne = new Set(["апельсин", "яблоко", "банан"]);
-        let setTwo = new Set(["апельсин", "яблоко", "банан"]);
+        const setOne = new Set(["апельсин", "яблоко", "банан"]);
+        const setTwo = new Set(["апельсин", "яблоко", "банан"]);
 
         expect(isEqual(setOne, setTwo)).toBe(true);
 
-        let mapOne = new Map<any, any>([
+        const mapOne = new Map<any, any>([
             [1, "hoho"],
             ["kek", "toto"],
             [true, 555],
             ["hoo", { nm: 1 }],
         ]);
-        let mapTwo = new Map<any, any>([
+        const mapTwo = new Map<any, any>([
             [1, "hoho"],
             ["kek", "toto"],
             [true, 555],
@@ -115,6 +115,33 @@ describe("isEqual", () => {
         oneObj = {
             name: "Anna",
             age: 22,
+            studying: true,
+        };
+
+        twoObj = {
+            name: "Anna",
+            age: 22,
+            works: true,
+        };
+
+        expect(isEqual(oneObj, twoObj)).toBe(false);
+
+        oneObj = {
+            name: "Anna",
+            works: true,
+        };
+
+        twoObj = {
+            name: "Anna",
+            age: 28,
+            works: true,
+        };
+
+        expect(isEqual(oneObj, twoObj)).toBe(false);
+
+        oneObj = {
+            name: "Anna",
+            age: 22,
             code: {},
         };
 
@@ -126,18 +153,18 @@ describe("isEqual", () => {
 
         expect(isEqual(oneObj, twoObj, { shallow: true })).toBe(false);
 
-        let setOne = new Set(["апельсин", "яблоко", "банан"]);
-        let setTwo = new Set(["апельсин", "яблоко", "груша"]);
+        const setOne = new Set(["апельсин", "яблоко", "банан"]);
+        const setTwo = new Set(["апельсин", "яблоко", "груша"]);
 
         expect(isEqual(setOne, setTwo)).toBe(false);
 
-        let mapOne = new Map<any, any>([
+        const mapOne = new Map<any, any>([
             [1, "hoho"],
             ["kek", "toto"],
             [true, 555],
             ["hoo", { nm: 1 }],
         ]);
-        let mapTwo = new Map<any, any>([
+        const mapTwo = new Map<any, any>([
             [1, "hoho"],
             ["kek", "toto"],
             [true, 555],

@@ -1,5 +1,6 @@
 export { getFormat } from "./get-format";
 export { clip } from "./clip";
+export { uniq } from "./uniq";
 export { isObject } from "./is-object";
 export { isNil } from "./is-nil";
 export { isString } from "./is-string";
@@ -11,3 +12,4 @@ export { isDate } from "./is-date";
 export { isMap } from "./is-map";
 export { isSet } from "./is-set";
 export { isRegex } from "./is-regex";
+export { isFunction } from "./is-function";

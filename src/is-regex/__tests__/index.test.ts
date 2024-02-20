@@ -12,6 +12,7 @@ describe("isRegex", () => {
         null,
         1,
         "str",
+        "/str/",
         false,
         { name: "Alexey" },
         [],
