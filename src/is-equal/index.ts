@@ -106,12 +106,36 @@ function setCompare(oneSet: Set<any>, twoSet: Set<any>): boolean {
     return true;
 }
 
+/**
+ * Checks if the values are equivalent.
+ * @example
+ *   isEqual({name: "Anna", age: 25}, {name: "Anna", age: 25}) //=> true
+ *   isEqual({name: "Dima", age: 25}, {name: "Anna", age: 25}) //=> false
+ *   isEqual([1, 2, 5], [1, 2, 5]) //=> true
+ *   isEqual([1, 2, 5], [1, 5, 5]) //=> false
+ *   isEqual(new Date("02-04-2023"), new Date("02-04-2023")) //=> true
+ *   isEqual(new Date("02-04-2023"), new Date("03-04-2023")) //=> false
+ *   isEqual(
+ *       new Set(["orange", "apple", "banana"]),
+ *       new Set(["orange", "apple", "banana"]),
+ *   ) //=> true
+ *   isEqual(
+ *       new Set(["orange", "apple", "banana"]),
+ *       new Set(["orange", "apple", "pear"]),
+ *   ) //=> false
+ *   isEqual(new Map([["key", 5]]), new Map([["key", 5]])) //=> true
+ *   isEqual(new Map([["key", 5]]), new Map([["key", 555]])) //=> false
+ *   isEqual(new RegExp("js", "gi"), new RegExp("js", "gi")) //=> true
+ *   isEqual(new RegExp("go", "gi"), new RegExp("js", "gi")) //=> false
+ *   isEqual(10, 10) //=> true
+ *   isEqual(10, "10") //=> false
+ */
 export function isEqual(
     oneValue: any,
     twoValue: any,
     options: OptionsType = { shallow: false },
 ): boolean {
-    const opts: OptionsType = isObject(options) ? options : { shallow: false };
+    const opts = isObject(options) ? options : { shallow: false };
 
     const oneValueType = getType(oneValue);
     const twoValueType = getType(twoValue);

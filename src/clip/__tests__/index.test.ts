@@ -32,14 +32,14 @@ describe("clip", () => {
             street: "st 25",
             job: true,
         };
-        expect(clip(testObj, ["age", "job"], true)).toEqual({
+        expect(clip(testObj, ["age", "job"], { pick: true })).toEqual({
             age: 25,
             job: true,
         });
-        expect(clip(testObj, ["name"], true)).toEqual({
+        expect(clip(testObj, ["name"], { pick: true })).toEqual({
             name: "Alexey",
         });
 
-        expect(clip(testObj, [], true)).toEqual({});
+        expect(clip(testObj, [], { pick: true })).toEqual({});
     });
 });

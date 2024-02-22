@@ -98,6 +98,11 @@ describe("isEqual", () => {
         regexOne = /js/gi;
         regexTwo = /js/gi;
         expect(isEqual(regexOne, regexTwo)).toBe(true);
+
+        const arrayOne = [1, 2, 5];
+        const arrayTwo = [1, 2, 5];
+
+        expect(isEqual(arrayOne, arrayTwo)).toBe(true);
     });
 
     test("should return false if the values are not equivalent", () => {
@@ -184,5 +189,10 @@ describe("isEqual", () => {
         regexOne = /js/gi;
         regexTwo = /go/gi;
         expect(isEqual(regexOne, regexTwo)).toBe(false);
+
+        const arrayOne = [1, 2, 5];
+        const arrayTwo = [1, 5, 5];
+
+        expect(isEqual(arrayOne, arrayTwo)).toBe(false);
     });
 });
