@@ -5,5 +5,10 @@
     "declarationDir": "dist/types",
     "emitDeclarationOnly": true,
     "removeComments": false
-  }
+  },
+  "exclude": [
+    "node_modules",
+    "src/**/__tests__",
+    "rollup.config.ts"
+  ]
 }

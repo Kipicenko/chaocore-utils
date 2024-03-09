@@ -1,30 +1,19 @@
-import globals from "globals";
-import js from "@eslint/js";
+import eslint from "@eslint/js";
 import tsEslint from "typescript-eslint";
 import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended";
-import tsParser from "@typescript-eslint/parser";
 
-export default [
-    js.configs.recommended,
+export default tsEslint.config(
+    eslint.configs.recommended,
     ...tsEslint.configs.recommended,
     eslintPluginPrettierRecommended,
     {
         ignores: ["dist/", "node_modules/"],
     },
     {
-        files: ["src/**/*.ts"],
+        files: ["**/*.ts"],
         rules: {
             "no-console": "error",
             "@typescript-eslint/no-explicit-any": "off",
         },
-        languageOptions: {
-            parser: tsParser,
-            ecmaVersion: "latest",
-            sourceType: "module",
-            globals: {
-                ...globals.node,
-                ...globals.jest,
-            },
-        },
     },
-];
+);

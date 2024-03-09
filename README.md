@@ -1,8 +1,8 @@
 # @chaocore/utils
 
-## Installing
+The utils library for JavaScript and TypeScript.
 
-### Package manager
+## Installing
 
 Using npm:
 

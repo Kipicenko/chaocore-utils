@@ -2,6 +2,7 @@ node_modules/
 dist/
 .idea/
 .vscode/
+.yarn/
 
 # dotenv environment variable files
 .env
