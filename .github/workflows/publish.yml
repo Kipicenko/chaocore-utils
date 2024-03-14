@@ -1,10 +1,10 @@
-name: Publish package
+name: Publish the package
 
 on:
   workflow_dispatch:
     inputs:
       version:
-        description: Publish package version
+        description: Package version
         required: true
 
 jobs:
@@ -36,12 +36,15 @@ jobs:
           git config user.email $GITHUB_ACTOR@users.noreply.github.com
           npm version ${{ github.event.inputs.version }}
 
-      - name: Publishing a package
+      - name: Deleting the postinstall script in package.json before publishing
+        run: npm pkg delete scripts.postinstall
+
+      - name: Publishing the package
         run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - name: Push version
+      - name: Pushing version and tag to repository
         run: |
           git push origin main
           git push origin v${{ github.event.inputs.version }}
