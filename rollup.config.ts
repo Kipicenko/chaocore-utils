@@ -24,7 +24,6 @@ const build_esm: RollupOptions = {
         }),
         terser(),
     ],
-    external: ["rfdc"],
 };
 
 const build_cjs: RollupOptions = {
@@ -46,7 +45,6 @@ const build_cjs: RollupOptions = {
         }),
         terser(),
     ],
-    external: ["rfdc"],
 };
 
 const builds: Array<RollupOptions> = [build_esm, build_cjs];

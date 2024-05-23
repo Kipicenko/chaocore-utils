@@ -135,19 +135,17 @@ export function isEqual(
     twoValue: any,
     options: OptionsType = { shallow: false },
 ): boolean {
-    const opts = isObject(options) ? options : { shallow: false };
-
     const oneValueType = getType(oneValue);
     const twoValueType = getType(twoValue);
     if (oneValueType !== twoValueType) return false;
 
     switch (oneValueType) {
         case "is-array":
-            return arrayCompare(oneValue, twoValue, opts);
+            return arrayCompare(oneValue, twoValue, options);
         case "is-object":
-            return objectCompare(oneValue, twoValue, opts);
+            return objectCompare(oneValue, twoValue, options);
         case "is-map":
-            return mapCompare(oneValue, twoValue, opts);
+            return mapCompare(oneValue, twoValue, options);
         case "is-set":
             return setCompare(oneValue, twoValue);
         case "is-date":

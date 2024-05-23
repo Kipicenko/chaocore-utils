@@ -12,7 +12,7 @@ export default tsEslint.config(
     {
         files: ["**/*.ts"],
         rules: {
-            "no-console": "error",
+            "no-console": ["error", { allow: ["warn", "error"] }],
             "@typescript-eslint/no-explicit-any": "off",
         },
     },

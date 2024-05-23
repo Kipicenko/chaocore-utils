@@ -1,6 +1,5 @@
 import { isObject } from "@src/is-object";
 import { isArray } from "@src/is-array";
-import clone from "rfdc";
 
 /**
  * Returns a partial copy of an object omitting the keys specified. If option pick - false
@@ -17,16 +16,24 @@ export function clip<T extends object = Record<string, any>>(
 ): T {
     if (!isObject(obj) || !isArray(keys)) return {} as T;
 
-    const opts = isObject(options) ? options : { pick: false };
-    const cloneObject = clone()(obj);
-    const collectionKeys = new Set(keys);
+    try {
+        const cloneObject = structuredClone(obj);
+        const collectionKeys = new Set(keys);
 
-    const newClipObject: Record<string, any> = {};
-    for (const key of Object.keys(cloneObject)) {
-        if (opts.pick ? collectionKeys.has(key) : !collectionKeys.has(key)) {
-            newClipObject[key] = cloneObject[key];
+        const newClipObject: Record<string, any> = {};
+        for (const key of Object.keys(cloneObject)) {
+            if (
+                options.pick
+                    ? collectionKeys.has(key)
+                    : !collectionKeys.has(key)
+            ) {
+                newClipObject[key] = cloneObject[key];
+            }
         }
-    }
 
-    return newClipObject as T;
+        return newClipObject as T;
+    } catch (e) {
+        console.error(e);
+        return {} as T;
+    }
 }

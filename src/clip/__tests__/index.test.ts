@@ -1,5 +1,7 @@
 import { clip } from "@src/clip";
 
+const consoleError = jest.spyOn(console, "error");
+
 describe("clip", () => {
     test("should return omit object", () => {
         const testObj = {
@@ -23,6 +25,8 @@ describe("clip", () => {
             street: "st 25",
             job: true,
         });
+
+        expect(consoleError).not.toHaveBeenCalled();
     });
 
     test("should return pick object", () => {
@@ -41,5 +45,20 @@ describe("clip", () => {
         });
 
         expect(clip(testObj, [], { pick: true })).toEqual({});
+
+        expect(consoleError).not.toHaveBeenCalled();
+    });
+
+    test("should return empty object if an error occurred", () => {
+        const testObj = {
+            name: "Alexey",
+            age: 25,
+            fn: () => {
+                return "Test";
+            },
+        };
+
+        expect(clip(testObj, ["age"], { pick: true })).toEqual({});
+        expect(consoleError).toHaveBeenCalled();
     });
 });

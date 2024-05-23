@@ -1,4 +1,3 @@
-import clone from "rfdc";
 import { isFunction } from "@src/is-function";
 import { isArray } from "@src/is-array";
 
@@ -20,19 +19,25 @@ export function uniq<T>(
     transformer?: (value: T) => any,
 ): Array<T> {
     if (!isArray(array)) return [];
-    const copyArray = clone()(array);
 
-    if (!isFunction(transformer)) return [...new Set<any>(copyArray)];
+    try {
+        const copyArray = structuredClone(array);
 
-    const uniqKey = new Set<any>();
-    const uniqArray = [];
+        if (!isFunction(transformer)) return [...new Set<any>(copyArray)];
 
-    for (const item of copyArray) {
-        const identifier = transformer(item);
-        if (!uniqKey.has(identifier)) {
-            uniqArray.push(item);
-            uniqKey.add(identifier);
+        const uniqKey = new Set<any>();
+        const uniqArray = [];
+
+        for (const item of copyArray) {
+            const identifier = transformer(item);
+            if (!uniqKey.has(identifier)) {
+                uniqArray.push(item);
+                uniqKey.add(identifier);
+            }
         }
+        return uniqArray;
+    } catch (e) {
+        console.error(e);
+        return [];
     }
-    return uniqArray;
 }
