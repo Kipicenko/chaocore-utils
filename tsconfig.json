@@ -1,11 +1,11 @@
 {
   "compilerOptions": {
-    "target": "es2018",
+    "target": "es2021",
     "lib": [
       "dom",
       "esNext"
     ],
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "removeComments": true,
     "resolveJsonModule": true,
     "baseUrl": ".",
