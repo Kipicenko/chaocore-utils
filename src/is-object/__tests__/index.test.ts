@@ -1,4 +1,4 @@
-import { isObject } from "@src/is-object";
+import { isObject } from "#src/is-object";
 
 describe("isObject", () => {
     test("should return true if it's an object", () => {

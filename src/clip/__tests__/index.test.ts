@@ -1,4 +1,4 @@
-import { clip } from "@src/clip";
+import { clip } from "#src/clip";
 
 const consoleError = jest.spyOn(console, "error");
 

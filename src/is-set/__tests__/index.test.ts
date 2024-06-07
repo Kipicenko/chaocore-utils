@@ -1,4 +1,4 @@
-import { isSet } from "@src/is-set";
+import { isSet } from "#src/is-set";
 
 describe("isSet", () => {
     test("should return true if the value Set", () => {

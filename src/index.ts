@@ -2,6 +2,7 @@ export { getFormat } from "./get-format";
 export { clip } from "./clip";
 export { uniq } from "./uniq";
 export { calcMedian } from "./calc-median";
+export { formatString } from "./format-string";
 export { isObject } from "./is-object";
 export { isNil } from "./is-nil";
 export { isString } from "./is-string";

@@ -1,4 +1,4 @@
-import { isDate } from "@src/is-date";
+import { isDate } from "#src/is-date";
 
 describe("isDate", () => {
     test("should return true if the value Date", () => {

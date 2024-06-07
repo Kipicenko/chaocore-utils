@@ -1,4 +1,4 @@
-import { isEqual } from "@src/is-equal";
+import { isEqual } from "#src/is-equal";
 
 describe("isEqual", () => {
     test("should return true if the values are equivalent", () => {

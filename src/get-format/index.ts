@@ -1,4 +1,4 @@
-import { isString } from "@src/is-string";
+import { isString } from "#src/is-string";
 
 /**
  * Returns the file format from a string.

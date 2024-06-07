@@ -1,4 +1,4 @@
-import { isMap } from "@src/is-map";
+import { isMap } from "#src/is-map";
 
 describe("isMap", () => {
     test("should return true if the value Map", () => {

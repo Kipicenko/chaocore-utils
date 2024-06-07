@@ -1,5 +1,5 @@
-import { isObject } from "@src/is-object";
-import { isArray } from "@src/is-array";
+import { isObject } from "#src/is-object";
+import { isArray } from "#src/is-array";
 
 /**
  * Returns a partial copy of an object omitting the keys specified. If option pick - false

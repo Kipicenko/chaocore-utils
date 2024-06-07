@@ -1,5 +1,5 @@
-import { isFunction } from "@src/is-function";
-import { isArray } from "@src/is-array";
+import { isFunction } from "#src/is-function";
+import { isArray } from "#src/is-array";
 
 /**
  * Creates a duplicate-free version of an array.

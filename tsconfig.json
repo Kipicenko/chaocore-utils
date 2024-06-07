@@ -1,10 +1,7 @@
 {
   "compilerOptions": {
-    "target": "es2021",
-    "lib": [
-      "dom",
-      "esNext"
-    ],
+    "target": "ES2021",
+    "module": "ESNext",
     "moduleResolution": "bundler",
 //  "allowImportingTsExtensions": true,
     "removeComments": true,
@@ -20,7 +17,7 @@
     "noPropertyAccessFromIndexSignature": false,
     "skipLibCheck": true,
     "paths": {
-      "@src/*": ["src/*"]
+      "#src/*": ["src/*"]
     }
   },
   "include": [

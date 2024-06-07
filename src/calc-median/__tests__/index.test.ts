@@ -1,4 +1,4 @@
-import { calcMedian } from "@src/calc-median";
+import { calcMedian } from "#src/calc-median";
 
 describe("calcMedian", () => {
     test("should return median", () => {

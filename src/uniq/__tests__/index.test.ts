@@ -1,4 +1,4 @@
-import { uniq } from "@src/uniq";
+import { uniq } from "#src/uniq";
 
 const consoleError = jest.spyOn(console, "error");
 

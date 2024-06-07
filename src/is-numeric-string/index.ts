@@ -1,4 +1,4 @@
-import { isString } from "@src/is-string";
+import { isString } from "#src/is-string";
 
 /**
  * Checks if the string is a number.

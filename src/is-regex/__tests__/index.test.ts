@@ -1,4 +1,4 @@
-import { isRegex } from "@src/is-regex";
+import { isRegex } from "#src/is-regex";
 
 describe("isRegex", () => {
     test("should return true if the value RegExp", () => {

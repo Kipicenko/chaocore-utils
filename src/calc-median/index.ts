@@ -1,4 +1,4 @@
-import { isArray } from "@src/is-array";
+import { isArray } from "#src/is-array";
 
 /**
  * Finds the median of an array of numbers.

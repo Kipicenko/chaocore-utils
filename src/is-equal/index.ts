@@ -1,9 +1,9 @@
-import { isArray } from "@src/is-array";
-import { isObject } from "@src/is-object";
-import { isMap } from "@src/is-map";
-import { isSet } from "@src/is-set";
-import { isDate } from "@src/is-date";
-import { isRegex } from "@src/is-regex";
+import { isArray } from "#src/is-array";
+import { isObject } from "#src/is-object";
+import { isMap } from "#src/is-map";
+import { isSet } from "#src/is-set";
+import { isDate } from "#src/is-date";
+import { isRegex } from "#src/is-regex";
 
 type OptionsType = {
     shallow: boolean;

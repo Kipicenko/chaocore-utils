@@ -1,4 +1,4 @@
-import { getFormat } from "@src/get-format";
+import { getFormat } from "#src/get-format";
 
 describe("getFormat", () => {
     test("should return .jpg or jpg if dot - false", () => {
