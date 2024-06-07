@@ -6,6 +6,7 @@
     "registry": "https://registry.npmjs.org"
   },
   "type": "module",
+  "types": "./dist/types/index.d.ts",
   "exports": {
     "types": "./dist/types/index.d.ts",
     "require": "./dist/cjs/index.js",
