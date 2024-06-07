@@ -6,11 +6,13 @@
     "registry": "https://registry.npmjs.org"
   },
   "type": "module",
+  "exports": {
+    "types": "./dist/types/index.d.ts",
+    "require": "./dist/cjs/index.js",
+    "import": "./dist/esm/index.js"
+  },
   "sideEffects": false,
   "description": "The utils library for JavaScript and TypeScript.",
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
-  "types": "dist/types/index.d.ts",
   "files": [
     "dist"
   ],
