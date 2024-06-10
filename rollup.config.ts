@@ -32,6 +32,7 @@ const build_cjs: RollupOptions = {
         dir: "dist/cjs",
         format: "cjs",
         exports: "named",
+        entryFileNames: "[name].cjs",
         preserveModules: true,
     },
     plugins: [
