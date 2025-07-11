@@ -10,30 +10,26 @@ import { isArray } from "#src/is-array";
  *   clip({a: 1, b: 2, c: 3, d: 4}, ["a", "d"], { pick: true }) //=> { a: 1, d: 4 }
  */
 export function clip<T extends object = Record<string, any>>(
-    obj: Record<string, any>,
-    keys: Array<string>,
-    options: { pick: boolean } = { pick: false },
+  obj: Record<string, any>,
+  keys: Array<string>,
+  options: { pick: boolean } = { pick: false },
 ): T {
-    if (!isObject(obj) || !isArray(keys)) return {} as T;
+  if (!isObject(obj) || !isArray(keys)) return {} as T;
 
-    try {
-        const cloneObject = structuredClone(obj);
-        const collectionKeys = new Set(keys);
+  try {
+    const cloneObject = structuredClone(obj);
+    const collectionKeys = new Set(keys);
 
-        const newClipObject: Record<string, any> = {};
-        for (const key of Object.keys(cloneObject)) {
-            if (
-                options.pick
-                    ? collectionKeys.has(key)
-                    : !collectionKeys.has(key)
-            ) {
-                newClipObject[key] = cloneObject[key];
-            }
-        }
-
-        return newClipObject as T;
-    } catch (e) {
-        console.error(e);
-        return {} as T;
+    const newClipObject: Record<string, any> = {};
+    for (const key of Object.keys(cloneObject)) {
+      if (options.pick ? collectionKeys.has(key) : !collectionKeys.has(key)) {
+        newClipObject[key] = cloneObject[key];
+      }
     }
+
+    return newClipObject as T;
+  } catch (e) {
+    console.error(e);
+    return {} as T;
+  }
 }

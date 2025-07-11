@@ -6,7 +6,7 @@
  *   isMap(new Set()) //=> false
  */
 export function isMap(value: any): value is Map<any, any> {
-    return (
-        typeof value === "object" && value !== null && value.constructor === Map
-    );
+  return (
+    typeof value === "object" && value !== null && value.constructor === Map
+  );
 }

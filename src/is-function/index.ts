@@ -6,5 +6,5 @@
  *   isFunction("somethingElse") //=> false
  */
 export function isFunction(value: any): value is (...arg: any[]) => any {
-    return typeof value === "function";
+  return typeof value === "function";
 }
