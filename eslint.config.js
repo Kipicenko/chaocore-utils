@@ -3,9 +3,9 @@ import { defineConfig } from "eslint/config";
 import tsEslint from "typescript-eslint";
 import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended";
 
-export default defineConfig(
+export default defineConfig([
   eslint.configs.recommended,
-  ...tsEslint.configs.recommended,
+  tsEslint.configs.recommended,
   eslintPluginPrettierRecommended,
   {
     ignores: ["dist/", "node_modules/", ".pnp.*"],
@@ -17,4 +17,4 @@ export default defineConfig(
       "@typescript-eslint/no-explicit-any": "off",
     },
   },
-);
+]);
