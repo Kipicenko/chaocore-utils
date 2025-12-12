@@ -15,3 +15,4 @@ export { isMap } from "./is-map";
 export { isSet } from "./is-set";
 export { isRegex } from "./is-regex";
 export { isFunction } from "./is-function";
+export { isEmpty } from "./is-empty";
