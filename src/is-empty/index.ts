@@ -51,6 +51,7 @@ export function isEmpty(value: any): boolean {
     return false;
   }
 
-  // An extreme case is when an object properties contain only Symbols.
+  // The extreme case is when the properties of an object can contain only Symbols.
+  // example -> { [Symbol("a")]: "hello" }
   return Object.getOwnPropertySymbols(value).length === 0;
 }
